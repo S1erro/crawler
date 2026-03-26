@@ -1,0 +1,136 @@
+[
+  {
+    "url": "https://google.com",
+    "title": "Google",
+    "text": "Gmail Attēli Ieiet Izvērstā meklēšana Google piedāvājums: lietuvių русский Reklamēšana Uzņēmējdarbības risinājumi Viss par Google Google.lv © 2026 - Konfidencialitāte - Noteikumi Google lietotnes",
+    "links": [
+      "https://mail.google.com/mail/&ogbl",
+      "https://www.google.com/imghp?hl=lv&ogbl",
+      "https://www.google.lv/intl/lv/about/products",
+      "https://accounts.google.com/ServiceLogin?hl=lv&passive=true&continue=https://www.google.com/&ec=GAZAmgQ",
+      "https://google.com/advanced_search?hl=lv&authuser=0",
+      "https://www.google.com/setprefs?sig=0_SO6pbW-dqMyUPrkScOe9MMMFIlk%3D&hl=lt&source=homepage&sa=X&ved=0ahUKEwi3qJrjor6TAxUGrlYBHZ5bOPkQ2ZgBCAU",
+      "https://www.google.com/setprefs?sig=0_SO6pbW-dqMyUPrkScOe9MMMFIlk%3D&hl=ru&source=homepage&sa=X&ved=0ahUKEwi3qJrjor6TAxUGrlYBHZ5bOPkQ2ZgBCAY",
+      "https://google.com/intl/lv/ads/",
+      "http://www.google.lv/intl/lv/services/",
+      "https://google.com/intl/lv/about.html",
+      "https://www.google.com/setprefdomain?prefdom=LV&prev=https://www.google.lv/&sig=K_TdOUWFxg2l9ddvPnbYhFmsG2BwU%3D",
+      "https://google.com/intl/lv/policies/privacy/",
+      "https://google.com/intl/lv/policies/terms/"
+    ],
+    "metadata": {
+      "title": "Google",
+      "description": "",
+      "keywords": ""
+    },
+    "images": [
+      {
+        "src": "https://google.com/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png",
+        "alt": "Google"
+      },
+      {
+        "src": "https://google.com/textinputassistant/tia.png",
+        "alt": ""
+      }
+    ],
+    "headings": {
+      "h1": [],
+      "h2": [],
+      "h3": []
+    },
+    "tables": [
+      [
+        [
+          "",
+          "",
+          "Izvērstā meklēšana"
+        ]
+      ]
+    ],
+    "lists": {
+      "ul": [],
+      "ol": []
+    },
+    "text_length": 195,
+    "links_count": 13,
+    "images_count": 2
+  },
+  {
+    "url": "https://yandex.com",
+    "title": "Yandex — fast Internet search",
+    "text": "Services Images Video Maps Translate Weather Mail Games All Search with Yandex AI Search {\"static\":\"2026-03-26-1090\",\"content\":\"big\",\"domain\":\"com\",\"nodeVersion\":false} 1774552381476350-11684518872684520919-balancer-l7leveler-kubr-yp-vla-30-BAL",
+    "links": [
+      "https://passport.yandex.com/auth?origin=morda&retpath=https%3A%2F%2Fyandex.com%2F",
+      "https://yandex.com/images/?utm_source=yandex&utm_medium=com&utm_campaign=morda",
+      "https://yandex.com/video/?utm_source=yandex&utm_medium=com&utm_campaign=morda",
+      "https://yandex.com/maps/?utm_source=maps&utm_medium=search&utm_campaign=desktop",
+      "https://translate.yandex.com/?utm_source=yandex&utm_medium=com&utm_campaign=morda",
+      "https://meteum.ai/?utm_source=yandex&utm_medium=com&utm_campaign=morda",
+      "https://mail.yandex.com/?utm_source=yandex&utm_medium=com&utm_campaign=morda?utm_source=yandexall",
+      "https://yandex.com/games/?utm_source=yandex&utm_medium=com&utm_campaign=morda",
+      "https://yandex.com/all"
+    ],
+    "metadata": {
+      "title": "Yandex — fast Internet search",
+      "description": "Yandex finds anything: webpages, images, music, good. Solve any problem — from everyday to a scientific one. Search by text, voice or image.",
+      "keywords": ""
+    },
+    "images": [
+      {
+        "src": "https://mc.yandex.ru/watch/44746606",
+        "alt": ""
+      }
+    ],
+    "headings": {
+      "h1": [],
+      "h2": [
+        "Services"
+      ],
+      "h3": []
+    },
+    "tables": [],
+    "lists": {
+      "ul": [
+        [
+          "Images",
+          "Video",
+          "Maps",
+          "Translate",
+          "Weather",
+          "Mail",
+          "Games",
+          "All"
+        ]
+      ],
+      "ol": []
+    },
+    "text_length": 244,
+    "links_count": 9,
+    "images_count": 1
+  },
+  {
+    "url": "https://bing.com",
+    "title": "Meklēt — Microsoft Bing",
+    "text": "Pierakstīties",
+    "links": [],
+    "metadata": {
+      "title": "Meklēt — Microsoft Bing",
+      "description": "Meklējiet, izmantojot Microsoft Bing, un lietojiet AI iespējas, lai atrastu informāciju, pārlūkotu tīmekļa lapas, attēlus, videoklipus, kartes un daudz ko citu. Vieda meklētājprogramma vienmēr zinātkārajiem.",
+      "keywords": ""
+    },
+    "images": [],
+    "headings": {
+      "h1": [],
+      "h2": [],
+      "h3": []
+    },
+    "tables": [],
+    "lists": {
+      "ul": [],
+      "ol": []
+    },
+    "text_length": 13,
+    "links_count": 0,
+    "images_count": 0
+  }
+]
