@@ -45,12 +45,17 @@ class AsyncCrawler:
 
     async def fetch_urls(self, urls: list[str]) -> dict[str, str]:
         tasks = []
+        fetched_dict = {}
 
         for url in urls:
             tasks.append(asyncio.create_task(self.fetch_url(url)))
 
         res = await asyncio.gather(*tasks)
-        return dict(zip(urls, res))
+
+        for index in range(len(urls)):
+            fetched_dict[urls[index]] = res[index]
+
+        return fetched_dict
 
     async def close(self) -> None:
         if self.session is not None and not self.session.closed:
@@ -58,57 +63,64 @@ class AsyncCrawler:
 
     async def fetch_and_parse(self, url: str) -> dict:
         html = await self.fetch_url(url)
-        httpParser = HTTPParser()
-        parsedDict: dict = await httpParser.parse_html(html, url)
-        
-        return parsedDict
+        http_parser = HTTPParser()
+        parsed_dict: dict = await http_parser.parse_html(html, url)
+
+        return parsed_dict
+
+    async def fetch_and_parse_many(self, url: list[str]) -> list[dict]:
+        htmls = await self.fetch_urls(url)
+        http_parser = HTTPParser()
+
+        parsed_dicts = []
+
+        for url, html in htmls.items():
+            new_dict: dict = await http_parser.parse_html(html, url)
+            parsed_dicts.append(new_dict)
+
+        return parsed_dicts
 
 
-class HTTPParser:    
+class HTTPParser:
     async def parse_html(self, html: str, url: str) -> dict:
-        result = {
-            'url': url,
-            'title': '',
-            'text': '',
-            'links': [],
-            'metadata': {
-                'title': '',
-                'description': '',
-                'keywords': ''
-            }
-        }
+        result = {"url": url}
 
-        if not html: 
+        if not html:
             return result
-        
+
         try:
-            soup = BeautifulSoup(html, 'lxml')
+            soup = BeautifulSoup(html, "lxml")
         except Exception:
-            soup = BeautifulSoup(html, 'html.parser')
+            soup = BeautifulSoup(html, "html.parser")
 
         try:
             metadata = await self.extract_metadata(soup)
             links = await self.extract_links(soup, url)
             text = await self.extract_text(soup)
 
-            result['title'] = metadata.get('title', '')
-            result['links'] = links
-            result['text'] = text
-            result['metadata'] = metadata
+            if metadata.get("title"):
+                result["title"] = metadata.get("title", "")
 
+            if len(links) > 0:
+                result["links"] = links
+
+            if len(text) > 0:
+                result["text"] = text
+
+            result["metadata"] = metadata
 
         except Exception:
             pass
-        
+
         return result
 
     async def extract_links(self, soup: BeautifulSoup, base_url: str) -> list[str]:
         links = []
-        
-        for link in soup.find_all('a'):
-            href = link.get('href')
-            if(href):
-                if(base_url in href):
+
+        for link in soup.find_all("a"):
+            href = link.get("href")
+            if href:
+                if base_url in href:
                     links.append(href)
                 else:
                     links.append(urljoin(base_url, href))
@@ -118,25 +130,22 @@ class HTTPParser:
     async def extract_text(self, soup: BeautifulSoup, selector: str = None) -> str:
         node = soup.select_one(selector) if selector else soup.body
         if not node:
-            return ''
+            return ""
         else:
             return node.get_text(" ", strip=True)
 
     async def extract_metadata(self, soup: BeautifulSoup) -> dict:
-        title = soup.title.string if soup.title and soup.title.string else ''
+        metadata = {}
 
-        description = ''
-        d = soup.find('meta', attrs={'name': 'description'})
-        if d and d.get('content'):
-            description = d['content']
+        if soup.title and soup.title.string:
+            metadata["title"] = soup.title.string
 
-        keywords = ''
-        k = soup.find('meta', attrs={'name': 'keywords'})
-        if k and k.get('content'):
-            keywords = k['content']
+        d = soup.find("meta", attrs={"name": "description"})
+        if d and d.get("content"):
+            metadata["description"] = d["content"]
 
-        return {
-            'title': title,
-            'description': description,
-            'keywords': keywords
-        }
+        k = soup.find("meta", attrs={"name": "keywords"})
+        if k and k.get("content"):
+            metadata["keywords"] = k["content"]
+
+        return metadata
